@@ -1,0 +1,45 @@
+@model ProgrammingSchoolApp.Models.Course
+
+@{
+    ViewData["Title"] = "Редагування курсу";
+}
+
+<div class="container mt-4">
+    <h1 class="fw-bold mb-4">Редагувати курс</h1>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0 p-4">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    
+                    <input type="hidden" asp-for="Id" />
+                    
+                    <div class="form-group mb-3">
+                        <label asp-for="Title" class="form-label fw-bold">Назва курсу</label>
+                        <input asp-for="Title" class="form-control form-control-lg" />
+                    </div>
+                    
+                    <div class="form-group mb-3">
+                        <label asp-for="Description" class="form-label fw-bold">Опис</label>
+                        <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+                    </div>
+                    
+                    <div class="form-group mb-4">
+                        <label asp-for="Price" class="form-label fw-bold">Ціна (грн)</label>
+                        <input asp-for="Price" class="form-control form-control-lg" type="number" step="0.01" />
+                    </div>
+                    
+                    <div class="form-group d-grid gap-2 d-md-flex">
+                        <input type="submit" value="Зберегти зміни" class="btn btn-success btn-lg px-4" />
+                        <a asp-action="Index" class="btn btn-light btn-lg">Скасувати</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

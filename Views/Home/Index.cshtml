@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "Головна";
+}
+
+<div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-4 fw-bold" style="color: #1c1d1f; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+        Ваш путівник у світ програмування
+    </h1>
+    <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4 mt-3 text-muted">
+            Опановуйте нові технології у власному темпі. Наша платформа пропонує зручний доступ до якісних відеоуроків з програмування без дедлайнів, домашніх завдань та стресу. Просто обирайте курс, вмикайте відео та навчайтеся!
+        </p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mt-4">
+            <a asp-controller="Courses" asp-action="Index" class="btn btn-dark btn-lg px-4 gap-3 fw-bold" style="background-color: #1c1d1f; border-radius: 0;">
+                Перейти до відеоуроків
+            </a>
+            <a href="#benefits" class="btn btn-outline-secondary btn-lg px-4" style="border-radius: 0;">
+                Переваги платформи
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="b-example-divider" style="height: 3rem; background-color: rgba(0, 0, 0, .02); border-top: 1px solid rgba(0, 0, 0, .05); border-bottom: 1px solid rgba(0, 0, 0, .05);"></div>
+
+<div id="benefits" class="container px-4 py-5">
+    <h2 class="pb-2 border-bottom fw-bold" style="color: #1c1d1f;">Чому навчатися з нами зручно?</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+        
+        <div class="col d-flex align-items-start">
+            <div>
+                <h3 class="fs-4 fw-bold mb-3">🎥 Якісні відеоуроки</h3>
+                <p class="text-muted">Отримуйте знання з чітких та структурованих відеоінструкцій. Вивчайте синтаксис, бази даних та архітектуру крок за кроком.</p>
+            </div>
+        </div>
+        
+        <div class="col d-flex align-items-start">
+            <div>
+                <h3 class="fs-4 fw-bold mb-3">🕒 Навчання у своєму темпі</h3>
+                <p class="text-muted">Ніяких дедлайнів, оцінок чи розкладів. Дивіться уроки тоді, коли вам зручно, ставте на паузу або переглядайте повторно скільки завгодно разів.</p>
+            </div>
+        </div>
+        
+        <div class="col d-flex align-items-start">
+            <div>
+                <h3 class="fs-4 fw-bold mb-3">📱 Незалежність</h3>
+                <p class="text-muted">Вам не потрібно чекати відповідей від викладачів. Уся необхідна інформація вже зібрана у відео — просто відкривайте сайт і починайте кодити.</p>
+            </div>
+        </div>
+        
+    </div>
+</div>

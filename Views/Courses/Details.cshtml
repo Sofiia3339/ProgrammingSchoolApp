@@ -1,0 +1,27 @@
+@model ProgrammingSchoolApp.Models.Course
+
+@{
+    ViewData["Title"] = "Деталі курсу";
+}
+
+<div class="container mt-4">
+    <h1 class="fw-bold mb-4">Деталі курсу</h1>
+
+    <div class="card shadow-sm border-0">
+        <div class="card-body">
+            <h2 class="card-title text-primary fw-bold">@Model.Title</h2>
+            <hr />
+            <dl class="row mt-3">
+                <dt class="col-sm-3 text-muted">Опис</dt>
+                <dd class="col-sm-9 fs-5">@Model.Description</dd>
+
+                <dt class="col-sm-3 text-muted mt-3">Вартість навчання</dt>
+                <dd class="col-sm-9 fs-4 fw-bold text-success mt-3">@Model.Price ₴</dd>
+            </dl>
+        </div>
+        <div class="card-footer bg-white border-top-0 pb-4 pt-0">
+            <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Редагувати</a>
+            <a asp-action="Index" class="btn btn-outline-secondary ms-2">Повернутися до каталогу</a>
+        </div>
+    </div>
+</div>
