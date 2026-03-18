@@ -45,3 +45,47 @@
         }
     </div>
 </div>
+<div class="container mt-5 mb-5">
+    <h2 class="fw-bold mb-4" style="color: #1c1d1f;">Аналітика: Вартість курсів</h2>
+    <div class="card shadow-sm border-0">
+        <div class="card-body">
+            <div id="chart_div" style="width: 100%; height: 400px;"></div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            fetch('/Courses/GetChartData')
+                .then(response => response.json())
+                .then(data => {
+                    var dataTable = new google.visualization.DataTable();
+                    dataTable.addColumn('string', 'Курс');
+                    dataTable.addColumn('number', 'Ціна (грн)');
+
+                    data.forEach(item => {
+                        dataTable.addRow([item.title, item.price]);
+                    });
+                    var options = {
+                        title: 'Порівняння вартості курсів',
+                        hAxis: {title: 'Назва курсу', titleTextStyle: {color: '#333'}},
+                        vAxis: {title: 'Ціна (грн)', minValue: 0},
+                        colors: ['#1c1d1f'],
+                        animation: {
+                            startup: true,
+                            duration: 1000,
+                            easing: 'out'
+                        },
+                        legend: { position: "none" }
+                    };
+                    var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+                    chart.draw(dataTable, options);
+                });
+        }
+    </script>
+}

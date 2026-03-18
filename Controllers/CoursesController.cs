@@ -81,5 +81,14 @@ public async Task<IActionResult> Create(Course course)
     }
     return View(course);
 }
+
+[HttpGet]
+public JsonResult GetChartData()
+{
+    var data = _context.Courses
+        .Select(c => new { title = c.Title, price = c.Price })
+        .ToList();
+    return Json(data);
+}
     }
 }
